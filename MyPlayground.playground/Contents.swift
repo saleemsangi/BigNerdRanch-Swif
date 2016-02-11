@@ -253,4 +253,14 @@ func sortEvenOdd(numbers : [Int]) -> (evens: [Int], odds: [Int]){
     return (evens, odds)
 }
 
+let aBunchOfNumbers = [10,4,5,3,78,45,2,7,222,90]
+let sortedNumber = sortEvenOdd(aBunchOfNumbers)
+print("even number = \(sortedNumber.evens) and odd numbers = \(sortedNumber.odds)" )
+
+///////////////////Optional Return Types//////////////
+func grabMiddleName(name: (String, String?, String)) -> String?{
+    return name.1
+}
+
+let middleName = grabMiddleName(("Matt", nil, "John"))
 
