@@ -222,3 +222,35 @@ func sayHiBack(name: String) -> String{
 }
 
 print(sayHiBack("Saleem"))
+
+//////Nested Fuctions//////
+
+func areaOfTriangle(withBase base: Double, andHeight height: Double) -> Double{
+    let numerator = base * height
+    func divide() -> Double{
+        return numerator / 2
+    }
+    
+    return divide()
+}
+
+areaOfTriangle(withBase: 3.0, andHeight: 5.0)
+
+//////////Multiple Reurns////////// OR Tuple//////
+
+func sortEvenOdd(numbers : [Int]) -> (evens: [Int], odds: [Int]){
+    var evens = [Int]()
+    var odds = [Int]()
+    for number in numbers{
+        if number % 2 == 0{
+            evens.append(number)
+        } else {
+            odds.append(number)
+        }
+        
+    }
+    
+    return (evens, odds)
+}
+
+
