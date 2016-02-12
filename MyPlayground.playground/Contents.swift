@@ -264,3 +264,49 @@ func grabMiddleName(name: (String, String?, String)) -> String?{
 
 let middleName = grabMiddleName(("Matt", nil, "John"))
 
+////////Exiting early from a function///////////// Guard.//////////////
+
+//func greetByMiddleName(name: (first: String, middle: String?, last: String)){
+//    guard let middleName = name.middle else{
+//        print("Hey! There..")
+//        return
+//    }
+//    print("Hey \(middleName)")
+//}
+//
+//greetByMiddleName(("Matt", nil, "Joe"))
+
+
+////////////////Bronze Challenge////
+
+func greetByMiddleName(name: (first: String, middle: String?, last: String)){
+    guard let middleName = name.middle where name.middle?.characters.count > 4 else{
+        print("Hey! There..")
+        return
+    }
+    print("Hey \(middleName)")
+}
+
+greetByMiddleName(("Matt", "Saleem", "Joe"))
+
+
+//////Silver challange of chapter 12///////
+
+func beanSifter(grocerryList list: [String]) -> (beans: [String], otherGrocerry: [String]){
+    var beans = [String]()
+    var otherGrocerry = [String]()
+    
+    for grocerry in list{
+        if grocerry .hasSuffix("beans"){
+            beans.append(grocerry)
+        }else{
+            otherGrocerry.append(grocerry)
+        }
+    }
+    
+    return (beans, otherGrocerry)
+}
+
+let result = beanSifter(grocerryList: ["green beans", "milk", "black beans", "pinto beans", "apples"])
+print(result.beans)
+print(result.otherGrocerry)
