@@ -332,3 +332,44 @@ func sortAscending(i: Int, j: Int) -> Bool{
 let volunteersSorted = volunteerCounts.sort { $0 < $1 }
 
 
+//////////Functions as returned types//////
+
+/*func makeTownGrand() -> (Int, Int) -> Int{
+    func buildRoads(lightsToAdd: Int, toLights: Int) ->Int{
+        return toLights + lightsToAdd
+    }
+    
+    return buildRoads
+}
+
+var stopLights = 4
+let townPlan = makeTownGrand()
+stopLights = townPlan(4, stopLights)
+print("knowhere has \(stopLights) stopLights.")*/
+
+
+///////////////Functions as Arguments////////////
+func makeTownGrand(budget: Int, condition: Int -> Bool) -> ((Int , Int) ->Int)?{
+    
+    if condition(budget){
+        func buildRoads(lightsToAdd: Int, toLights: Int) ->Int{
+            return toLights + lightsToAdd
+        }
+        return buildRoads
+    } else {
+        return nil
+    }
+}
+
+func evaluteBudget(budget: Int) -> Bool {
+    return budget > 1000
+}
+
+var stopLights = 4
+if let townPlan = makeTownGrand(10000, condition: evaluteBudget){
+    stopLights = townPlan(4, stopLights)
+    print("stopLights = \(stopLights)")
+}
+
+
+
