@@ -310,3 +310,25 @@ func beanSifter(grocerryList list: [String]) -> (beans: [String], otherGrocerry:
 let result = beanSifter(grocerryList: ["green beans", "milk", "black beans", "pinto beans", "apples"])
 print(result.beans)
 print(result.otherGrocerry)
+
+
+//////////////////////////////Chapter 13 Closures/////////////////////
+
+var volunteerCounts = [1,3,40,32,53,77,13]
+func sortAscending(i: Int, j: Int) -> Bool{
+    return i < j
+}
+
+//let volunteersSorted = volunteerCounts.sort(sortAscending) Or with closure
+
+/*let volunteersSorted = volunteerCounts.sort({
+    (i: Int, j: Int) -> Bool in
+    return i < j
+})*/
+/// shorter version///
+
+//let volunteersSorted = volunteerCounts.sort({i,j in i < j})
+//shortest version
+let volunteersSorted = volunteerCounts.sort { $0 < $1 }
+
+
